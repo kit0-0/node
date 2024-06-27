@@ -4,6 +4,7 @@ const cors = require('cors');
 const db = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
 const errorHandler = require('./middlewares/errorHandler');
+const assignmentRoutes = require('./routes/assignmentRoutes');
 
 // Load environment variables
 dotenv.config();
@@ -21,6 +22,7 @@ db.connect(err => {
 });
 
 app.use('/api/auth', authRoutes);
+app.use('/api', assignmentRoutes);
 
 app.use(errorHandler);
 
